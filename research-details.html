@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/plugins/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Research Details | Oscar Kiamba</title>
+  
+  <style>
+    /* Enable smooth scrolling for anchor links */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Force scrolling on all devices and override template defaults */
+    html, body {
+      height: auto !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      background: #1e1e26 !important;
+    }
+
+    .research-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 60px 15px;
+    }
+
+    @media (max-width: 992px) {
+      .research-container {
+        padding: 30px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body style="background: #1e1e26; color: #8c8c8e;">
+
+  <div class="research-container">
+
+    <div class="mb-30">
+      <a href="index.html" class="art-link art-color-link" style="display:inline-block; font-weight: 600; text-decoration: none;">
+        ← BACK TO PORTFOLIO
+      </a>
+    </div>
+
+    <div id="ioe-research" class="art-a art-card p-30 mb-30">
+      <h2 class="mb-15" style="color: #fff; text-align: center; font-size: 28px;">CrossDomain Intrusion Detection Framework with ML and Pre-Trained DNN-Based Modular Ensemble for IoE Ecosystems</h2>
+      
+      <div class="art-el-suptitle mb-30" style="color: #07c1ff; font-weight: bold; text-align: center;">Under Review</div>
+      
+      <div style="text-align: justify; line-height: 1.8;">
+        <p>Developed a comprehensive cross-domain intrusion detection framework designed to secure the diverse Internet of Everything (IoE) ecosystem, addressing a critical gap in traditional one-size-fits-all cybersecurity approaches. The research recognizes that different IoE environments—from industrial control systems to smart hospitals, connected vehicles, and legacy networks—face unique attack surfaces requiring specialized detection strategies. Rather than deploying a monolithic detection system that struggles with domain-specific threats like CAN bus spoofing in vehicles or protocol-specific exploits in medical IoT devices, I designed a modular architecture where each domain receives its own independently containerized intrusion detection model optimized for that environment's unique traffic patterns and threat landscape.</p>
+        
+        <p>Working with four benchmark datasets representing distinct IoE domains (NSL-KDD for legacy networks, CICIoT2023 for industrial IoT, ICUD for healthcare systems, and CAN-Intrusion for vehicular networks), I systematically evaluated nine different machine learning and deep learning algorithms including Support Vector Machines, Random Forests, XGBoost, Convolutional Neural Networks, Long Short-Term Memory networks, and hybrid CNN-LSTM architectures. Through rigorous preprocessing involving feature scaling, categorical encoding, and class balancing using hybrid SMOTE and undersampling techniques, I prepared each dataset for optimal model performance.</p>
+        
+        <p>The experimental results revealed that detection effectiveness depends heavily on the specific characteristics of each domain's data, with SVM achieving 98% accuracy on legacy network traffic, CNN-LSTM reaching perfect 100% detection rates on IoT and medical datasets, and XGBoost demonstrating superior performance with 79.82% ROC AUC on the challenging vehicular CAN protocol data. The framework operates through a dynamic inference pipeline that intelligently identifies the domain of incoming network traffic and routes it to the corresponding specialized model, functioning as a modular ensemble where each domain maintains its own independently trained and containerized detector. I implemented the entire system with a real-time Streamlit dashboard that provides interactive monitoring capabilities, allowing security operators to submit network traffic samples, select the appropriate IoE domain, and receive instant predictions with confidence scores.</p>
+        
+        <p>The deployment architecture uses joblib serialization for classical machine learning models and TensorFlow's native save format for deep learning models, with each model directory containing the trained model, preprocessing scaler, label encoder, and a comprehensive metadata file documenting feature specifications, input shapes, and domain identifiers. This modular deployment paradigm enables flexible updates, horizontal scalability, and real-time integration into operational security pipelines without disrupting other domain models. The research advances beyond isolated model benchmarking by demonstrating a practical, scalable architecture that can adapt to the heterogeneous nature of modern IoE ecosystems, laying groundwork for future federated learning deployments and edge-based intrusion detection in resource-constrained environments while maintaining domain-specific expertise and detection accuracy across diverse attack vectors and network protocols.</p>
+      </div>
+    </div>
+
+    <div class="art-ls-divider mb-30"></div>
+
+    <div id="uav-research" class="art-a art-card p-30 mb-30">
+      <h2 class="mb-15" style="color: #fff; text-align: center; font-size: 28px;">Improving Military Object Detection Under Noisy Conditions Using Spatial Denoising and ResNet-50 Deep Features</h2>
+      
+      <div class="art-el-suptitle mb-30" style="color: #07c1ff; font-weight: bold; text-align: center;">Accepted for publication in IEEE Xplore Proceedings — ETAACT 2026</div>
+      
+      <div style="text-align: justify; line-height: 1.8;">
+        <p>This work is about a comprehensive framework for improving military object detection in noisy battlefield conditions by combining advanced spatial denoising techniques with deep learning-based feature extraction using ResNet-50 architecture. Recognizing that real-world defense systems must operate under extremely challenging visual conditions including fog, dust, equipment degradation, low-light environments, and transmission interference that introduce various forms of image corruption, this research systematically addresses the critical gap between laboratory AI performance and operational battlefield reliability where unclear sensor data can mean the difference between correctly identifying a threat versus a friendly vehicle or civilian.</p>
+        
+        <p>Working with the Military Assets Dataset containing 26,315 images across 13 military object categories including tanks, aircraft, soldiers, and various military vehicles, I repurposed the original YOLO detection annotations into a classification dataset by cropping objects using bounding box coordinates and standardizing all images to 224×224 resolution, then addressed severe class imbalance by capping each category at 400 samples to prevent majority-class bias, resulting in a working dataset of 3,671 images split into training, validation, and test sets.</p>
+        
+        <p>The experimental methodology consisted of two comprehensive phases where Phase 1 involved systematically corrupting clean images with five battlefield-relevant degradation types including Gaussian noise simulating sensor static, salt-and-pepper noise representing transmission damage, motion blur at 0 and 45 degrees mimicking camera shake, and low-light attenuation replicating nighttime or obscured conditions, then applying six different denoising methods ranging from classical filters like Gaussian smoothing, Median filtering, Non-Local Means, and Block-Matching 3D filtering to deep learning approaches including DnCNN and autoencoder-based denoisers, with restoration quality measured using Peak Signal-to-Noise Ratio and Structural Similarity Index metrics.</p>
+        
+        <p>Phase 2 focused specifically on the two most operationally relevant noise types by generating fully corrupted test datasets with Gaussian and salt-and-pepper noise at low, medium, and high severity levels, applying the best-performing classical denoising methods identified from Phase 1, then evaluating a fine-tuned ResNet-50 classifier trained exclusively on clean data across all clean, noisy, and denoised conditions to quantify both the model's inherent noise robustness and the effectiveness of preprocessing restoration. Results revealed that Median filtering successfully restored classification accuracy to 76.05% by effectively removing salt-and-pepper noise while preserving critical edge features needed for object recognition.</p>
+      </div>
+    </div>
+
+    <div class="py-4 text-center">
+      <p style="font-size: 12px; opacity: 0.5;">© 2026 Oscar Kiamba | Portfolio</p>
+    </div>
+
+  </div>
+<script src="js/main.js"></script>
+  <script src="js/scroll-fix.js"></script>
+</body>
+</html>
